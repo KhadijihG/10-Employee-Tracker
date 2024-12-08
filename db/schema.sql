@@ -1,8 +1,8 @@
-DROP DATABASE if exists Employee_database;
+DROP DATABASE if exists employee_database;
 
-CREATE DATABASE Employee_database;
+CREATE DATABASE employee_database;
 
-\c Employee_database;
+\c employee_database;
 
 CREATE TABLE department (
     id SERIAL PRIMARY KEY,
@@ -16,3 +16,12 @@ CREATE TABLE role (
     department_id INTEGER NOT NULL,
     constraint fk_department foreign KEY (department_id) references department(id) on delete cascade
 );
+
+CREATE TABLE employee (
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    role_id INTEGER NOT NULL,
+    manager_id INTEGER,
+    constraint fk_role foreign KEY (role_id) references role(id) 
+)
