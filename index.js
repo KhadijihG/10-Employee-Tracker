@@ -1,5 +1,5 @@
 const pool = require('./db/connection')
-
+import inquirer from 'inquirer';
 
 const query = async () => {
     try {
@@ -10,3 +10,14 @@ const query = async () => {
       process.exit(1);
     }
   };
+
+  inquirer
+  .prompt([
+    /* Pass your questions in here */
+  ])
+  .then((answers) => {
+    // Use user feedback for... whatever!!
+  })
+  .catch((error) => {
+   console.log(error);
+    });
